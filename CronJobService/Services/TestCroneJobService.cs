@@ -29,7 +29,7 @@ namespace CronJobApi.Services
         public override async Task DoWork(CancellationToken cancellationToken)
         {
             _logger.LogInformation($"{DateTime.Now:hh:mm:ss} {nameof(TestCroneJobService)} is working.");
-            await Task.Delay(5000).ConfigureAwait(false);
+            await Task.Delay(5000, cancellationToken).ConfigureAwait(false);
 
             _logger.LogInformation($"{DateTime.Now:hh:mm:ss} {nameof(TestCroneJobService)} is done. Next iterration is: {NextIteration.Value:dd.MM.yy hh:mm:ss}");
         }
