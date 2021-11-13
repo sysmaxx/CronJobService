@@ -30,7 +30,7 @@ namespace CronJobService
 
             services.AddLogging();
 
-            services.AddCronJob<TestCroneJobService>(c =>
+            services.AddCronJob<TestCronJobService>(c =>
             {
                 c.TimeZoneInfo = TimeZoneInfo.Local;
                 c.CronJobExpression = @"* * * * *";
