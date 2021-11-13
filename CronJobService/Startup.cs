@@ -34,6 +34,7 @@ namespace CronJobService
             {
                 c.TimeZoneInfo = TimeZoneInfo.Local;
                 c.CronJobExpression = @"* * * * *";
+                c.SkipTaskIfBusy = false;
             });
 
             services.AddControllers();

@@ -7,7 +7,7 @@ namespace CronJobLibrary.Extensions
 {
     public static class ServiceExtensions
     {
-        public static IServiceCollection AddCronJob<T>(this IServiceCollection services, Action<IScheduleConfig<T>> options) where T : BaseCronJobService
+        public static IServiceCollection AddCronJob<T>(this IServiceCollection services, Action<IScheduleConfig<T>> options) where T : BaseCronJobService<T>
         {
             if (options is null)
                 throw new ArgumentNullException(nameof(options), "Schedule Configurations is missing");

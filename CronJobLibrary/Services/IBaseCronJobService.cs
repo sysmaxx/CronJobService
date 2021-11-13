@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CronJobLibrary.Services
 {
-    public interface IBaseCronJobService : IHostedService, IDisposable
+    public interface IBaseCronJobService<T> : IHostedService, IDisposable
     {
         Task DoWork(CancellationToken cancellationToken);
     }

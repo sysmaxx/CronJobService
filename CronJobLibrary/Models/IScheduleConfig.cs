@@ -5,5 +5,6 @@ namespace CronJobLibrary.Models
     {
         string CronJobExpression { get; set; }
         TimeZoneInfo TimeZoneInfo { get; set; }
+        bool SkipTaskIfBusy { get; set; }
     }
 }

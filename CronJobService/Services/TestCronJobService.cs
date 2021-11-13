@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CronJobApi.Services
 {
-    public class TestCronJobService : BaseCronJobService
+    public class TestCronJobService : BaseCronJobService<TestCronJobService>
     {
 
         private readonly ILogger<TestCronJobService> _logger;
@@ -15,7 +15,7 @@ namespace CronJobApi.Services
         public TestCronJobService(
             IScheduleConfig<TestCronJobService> config, 
             ILogger<TestCronJobService> logger) 
-            : base(config.CronJobExpression, config.TimeZoneInfo)
+            : base(config)
         {
             _logger = logger;
         }
@@ -29,7 +29,7 @@ namespace CronJobApi.Services
         public override async Task DoWork(CancellationToken cancellationToken)
         {
             _logger.LogInformation($"{DateTime.Now:hh:mm:ss} {nameof(TestCronJobService)} is working.");
-            await Task.Delay(5000, cancellationToken).ConfigureAwait(false);
+            await Task.Delay(65000, cancellationToken).ConfigureAwait(false);
             _logger.LogInformation($"{DateTime.Now:hh:mm:ss} {nameof(TestCronJobService)} is done. Next iterration is: {NextIteration.Value:dd.MM.yy hh:mm:ss}");
         }
 
